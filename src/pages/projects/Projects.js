@@ -18,13 +18,13 @@ function Projects(props) {
               key={index}
             >
               <div className="placeholder">
+                <projectUrl.icon sx={{ fontSize: 120 }} />
                 {index === activeId ? (
                   <>
-                    <projectUrl.icon sx={{ fontSize: 120 }} />
                     <h5 className="title">{projectUrl.title}</h5>
                   </>
                 ) : (
-                  <projectUrl.icon sx={{ fontSize: 120 }} />
+                  <></>
                 )}
               </div>
             </div>

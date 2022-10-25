@@ -20,16 +20,6 @@ function Contact(props) {
             >
               <h4>{c.title}</h4>
             </div>
-            {/* <div>
-              <a href="../shared/Resume_Ryan_Haefner.pdf" download>
-                <div className="contact">RESUME</div>
-              </a>
-            </div> */}
-            {/* <div>
-              <div className="contact" id="contact_1">
-                <h4>LINKEDIN</h4>
-              </div>
-            </div> */}
           </div>
         );
       })}
