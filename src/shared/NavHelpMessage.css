@@ -1,0 +1,12 @@
+.nav-help-message {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    color: white;
+    border-top: 1px solid white;
+    width: 100vw;
+}
+
+.message {
+    margin: 0px;
+}

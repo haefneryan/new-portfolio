@@ -1,0 +1,14 @@
+
+.contact, .info {
+    box-sizing: border-box;
+    padding: 8px;
+    margin: auto;
+    color: white;
+    text-decoration: none;
+    width: 50%;
+}
+
+.active-contact {
+    background-color: white;
+    color: black;
+}

@@ -1,0 +1,41 @@
+.projects-container {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+}
+
+.project-container {
+    padding: 1rem;
+}
+
+.placeholder {
+    border: 1px solid white;
+    width: 25vw;
+    height: 25vh;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.active-project {
+    border-radius: 1rem;
+    background-color: #660000;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.title {
+    position: absolute;
+    bottom: -15px;
+}
+
+/* .active-project .placeholder {
+    background-color: blueviolet;
+} */
