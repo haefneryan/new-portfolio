@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  useNavigate,
+  Navigate,
+  useParams,
+} from "react-router-dom";
 import Header from "./shared/Header";
 
 import About from "./pages/about/About";
 import Home from "./pages/home/Home";
 import Projects from "./pages/projects/Projects";
 import Contact from "./pages/contact/Contact";
-import { projects } from "./shared/projects";
 import NavHelpMessage from "./shared/NavHelpMessage";
+import { projects } from "./shared/projects";
 import { contact } from "./shared/contact";
 
 function App() {
@@ -18,6 +24,7 @@ function App() {
   const [activeContact, setActiveContact] = useState(0);
   const navigate = useNavigate();
   const [showNavHelpMessage, setShowNavHelpMessage] = useState(false);
+  const { test } = useParams();
 
   useEffect(() => {
     setShowNavHelpMessage(false);
@@ -25,6 +32,7 @@ function App() {
   }, [currentPage]);
 
   useEffect(() => {
+    checkRoute();
     setTimeout(navHelpMessageTimer, 10000);
   }, []);
 
@@ -84,6 +92,23 @@ function App() {
       setActiveContact(activeContact + 1);
     } else if (key === "w" && activeContact === 1) {
       setActiveContact(activeContact - 1);
+    }
+  };
+
+  const checkRoute = () => {
+    switch (window.location.pathname) {
+      case "/home":
+        setCurrentPage("home");
+        break;
+      case "/about":
+        setCurrentPage("about");
+        break;
+      case "/projects":
+        setCurrentPage("projects");
+        break;
+      case "/contact":
+        setCurrentPage("contact");
+        break;
     }
   };
 
