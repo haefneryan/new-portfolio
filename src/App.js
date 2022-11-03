@@ -24,7 +24,8 @@ function App() {
   const [activeContact, setActiveContact] = useState(0);
   const navigate = useNavigate();
   const [showNavHelpMessage, setShowNavHelpMessage] = useState(false);
-  const { test } = useParams();
+  const [openDialog, setOpenDialog] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
 
   useEffect(() => {
     setShowNavHelpMessage(false);
@@ -50,8 +51,30 @@ function App() {
       window.open(projects[activeId].url, "_blank");
     } else if (currentPage === "contact" && (key === "w" || key === "s")) {
       checkContactInputChange(key);
-    } else if (currentPage === "contact" && key === "enter") {
+    } else if (
+      currentPage === "contact" &&
+      (activeContact === 0 || activeContact === 1) &&
+      key === "enter"
+    ) {
       window.open(contact[activeContact].url, "_blank");
+    } else if (
+      currentPage === "contact" &&
+      activeContact === 2 &&
+      key === "enter" &&
+      !openDialog
+    ) {
+      setOpenDialog(!openDialog);
+    } else if (
+      openDialog &&
+      currentPage === "contact" &&
+      key === "enter" &&
+      openDialog
+    ) {
+      console.log("SENT MESSAGE");
+      setMessageSent(true);
+      setTimeout(closeDialog, 3000);
+    } else if (openDialog && currentPage === "contact" && key === "control") {
+      setOpenDialog(false);
     }
   };
 
@@ -65,7 +88,7 @@ function App() {
         setCurrentPage("about");
       } else if (
         (currentPage === "about" && key === "d") ||
-        (currentPage === "contact" && key === "a")
+        (currentPage === "contact" && key === "a" && !openDialog)
       ) {
         navigate("/projects");
         setCurrentPage("projects");
@@ -88,11 +111,17 @@ function App() {
   };
 
   const checkContactInputChange = (key) => {
-    if (key === "s" && activeContact === 0) {
+    console.log(key);
+    if (key === "s" && (activeContact === 0 || activeContact === 1)) {
       setActiveContact(activeContact + 1);
-    } else if (key === "w" && activeContact === 1) {
+    } else if (key === "w" && (activeContact === 1 || activeContact === 2)) {
       setActiveContact(activeContact - 1);
     }
+  };
+
+  const closeDialog = () => {
+    setMessageSent(false);
+    setOpenDialog(false);
   };
 
   const checkRoute = () => {
@@ -125,7 +154,13 @@ function App() {
         ></Route>
         <Route
           path="/contact"
-          element={<Contact activeContact={activeContact} />}
+          element={
+            <Contact
+              activeContact={activeContact}
+              openDialog={openDialog}
+              messageSent={messageSent}
+            />
+          }
         ></Route>
       </Routes>
       {showNavHelpMessage ? <NavHelpMessage /> : ""}

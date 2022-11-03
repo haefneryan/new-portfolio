@@ -7,4 +7,8 @@ export const contact = [
     title: "Linkedin",
     url: "https://www.linkedin.com/in/ryan-haefner-259432188/",
   },
+  {
+    title: "Contact Me",
+    url: "https://www.linkedin.com/in/ryan-haefner-259432188/",
+  },
 ];

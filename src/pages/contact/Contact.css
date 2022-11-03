@@ -12,3 +12,14 @@
     background-color: white;
     color: black;
 }
+
+.MuiDialog-paper {
+    width: 40vw;
+    height: 50vh;
+    padding: 50px;
+}
+
+p {
+    text-align: center;
+    padding-bottom: 3px;
+}

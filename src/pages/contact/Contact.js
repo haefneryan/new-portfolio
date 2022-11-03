@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Contact.css";
 import { contact } from "../../shared/contact";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 function Contact(props) {
-  const { activeContact } = props;
+  const { activeContact, openDialog, messageSent } = props;
 
   return (
     <div>
@@ -23,6 +27,15 @@ function Contact(props) {
           </div>
         );
       })}
+      <Dialog open={openDialog}>
+        <DialogTitle>CONTACT ME</DialogTitle>
+        <TextField label="Your message here..." focused />
+        <div>
+          <p>Enter to Send</p>
+          <p>CTRL to Exit</p>
+          {messageSent ? <p>Your message was sent!</p> : ""}
+        </div>
+      </Dialog>
     </div>
   );
 }
