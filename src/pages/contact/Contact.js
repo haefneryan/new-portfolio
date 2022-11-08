@@ -7,7 +7,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 function Contact(props) {
-  const { activeContact, openDialog, messageSent } = props;
+  const { activeContact, openDialog, messageSent, message, updateMessage } =
+    props;
 
   return (
     <div>
@@ -29,7 +30,11 @@ function Contact(props) {
       })}
       <Dialog open={openDialog}>
         <DialogTitle>CONTACT ME</DialogTitle>
-        <TextField label="Your message here..." focused />
+        <TextField
+          label="Your message here..."
+          focused
+          onChange={updateMessage}
+        />
         <div>
           <p>Enter to Send</p>
           <p>CTRL to Exit</p>

@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import {
-  Route,
-  Routes,
-  useNavigate,
-  Navigate,
-  useParams,
-} from "react-router-dom";
+import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 import Header from "./shared/Header";
 
 import About from "./pages/about/About";
@@ -26,6 +20,7 @@ function App() {
   const [showNavHelpMessage, setShowNavHelpMessage] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     setShowNavHelpMessage(false);
@@ -70,7 +65,6 @@ function App() {
       key === "enter" &&
       openDialog
     ) {
-      console.log("SENT MESSAGE");
       setMessageSent(true);
       setTimeout(closeDialog, 3000);
     } else if (openDialog && currentPage === "contact" && key === "control") {
@@ -103,7 +97,7 @@ function App() {
   };
 
   const checkProjectInputChange = (key) => {
-    if (key === "s" && activeId < 8) {
+    if (key === "s" && activeId < projects.length - 1) {
       setActiveId(activeId + 1);
     } else if (key === "w" && activeId > 0) {
       setActiveId(activeId - 1);
@@ -111,7 +105,6 @@ function App() {
   };
 
   const checkContactInputChange = (key) => {
-    console.log(key);
     if (key === "s" && (activeContact === 0 || activeContact === 1)) {
       setActiveContact(activeContact + 1);
     } else if (key === "w" && (activeContact === 1 || activeContact === 2)) {
@@ -120,8 +113,17 @@ function App() {
   };
 
   const closeDialog = () => {
+    sendMessage();
     setMessageSent(false);
     setOpenDialog(false);
+  };
+
+  const updateMessage = (e) => {
+    setMessage(e.target.value);
+  };
+
+  const sendMessage = () => {
+    console.log(message);
   };
 
   const checkRoute = () => {
@@ -159,6 +161,7 @@ function App() {
               activeContact={activeContact}
               openDialog={openDialog}
               messageSent={messageSent}
+              updateMessage={updateMessage}
             />
           }
         ></Route>

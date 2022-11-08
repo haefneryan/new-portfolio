@@ -7,6 +7,7 @@ import LaptopIcon from "@mui/icons-material/Laptop";
 import ExtensionIcon from "@mui/icons-material/Extension";
 import SportsSoccer from "@mui/icons-material/SportsSoccer";
 import PatternIcon from "@mui/icons-material/Pattern";
+import MailOutline from "@mui/icons-material/MailOutline";
 
 export const projects = [
   {
@@ -18,6 +19,11 @@ export const projects = [
     title: "Recipe Book",
     url: "https://cook-book-app-2f4b3.web.app/",
     icon: MenuBook,
+  },
+  {
+    title: "Mass Emailing App",
+    url: "http://mass-email-app-hosting.s3-website-us-east-1.amazonaws.com/",
+    icon: MailOutline,
   },
   {
     title: "Scheduling Tool",
