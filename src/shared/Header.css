@@ -6,6 +6,7 @@ header {
     height: 40px;
     z-index: 99;
     pointer-events: none;
+    background-color: black;
 }
 
 header * {
