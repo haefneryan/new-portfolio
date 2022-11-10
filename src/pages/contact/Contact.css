@@ -1,4 +1,6 @@
-
+.contact-container {
+    width: 60vw;
+}
 .contact, .info {
     box-sizing: border-box;
     padding: 8px;

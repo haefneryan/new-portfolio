@@ -10,6 +10,7 @@ import Contact from "./pages/contact/Contact";
 import NavHelpMessage from "./shared/NavHelpMessage";
 import { projects } from "./shared/projects";
 import { contact } from "./shared/contact";
+import Scroll from "react-scroll";
 
 function App() {
   const userInputKeys = ["w", "a", "s", "d"];
@@ -21,6 +22,14 @@ function App() {
   const [openDialog, setOpenDialog] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
   const [message, setMessage] = useState("");
+  const scroll = Scroll.animateScroll;
+
+  useEffect(() => {
+    document.title = "Ryan Haefner - Portfolio";
+    checkRoute();
+    setTimeout(navHelpMessageTimer, 10000);
+    scroll.scrollToTop();
+  }, []);
 
   useEffect(() => {
     setShowNavHelpMessage(false);
@@ -28,9 +37,12 @@ function App() {
   }, [currentPage]);
 
   useEffect(() => {
-    checkRoute();
-    setTimeout(navHelpMessageTimer, 10000);
-  }, []);
+    scrollToActiveProject();
+  }, [activeId]);
+
+  useEffect(() => {
+    scrollToActiveProject();
+  });
 
   const navHelpMessageTimer = () => {
     setShowNavHelpMessage(true);
@@ -112,6 +124,12 @@ function App() {
     }
   };
 
+  const scrollToActiveProject = () => {
+    if (window.innerWidth <= 700) {
+      scroll.scrollTo((window.innerWidth - 40) * 0.5 * activeId);
+    }
+  };
+
   const closeDialog = () => {
     sendMessage();
     setMessageSent(false);
@@ -122,7 +140,7 @@ function App() {
     setMessage(e.target.value);
   };
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     console.log(message);
   };
 

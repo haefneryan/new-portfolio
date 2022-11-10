@@ -3,6 +3,7 @@
     justify-content: space-evenly;
     grid-template-columns: auto auto auto;
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .project-container {
@@ -49,7 +50,7 @@ iframe {
     }
 
     .placeholder {
-        width: 50vw;
-        height: 50vw;
+        width: 40vw;
+        height: 40vw;
     }
   }

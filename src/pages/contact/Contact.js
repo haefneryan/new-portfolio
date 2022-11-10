@@ -11,36 +11,38 @@ function Contact(props) {
     props;
 
   return (
-    <div>
-      <div className="info">
-        <h4>haefner.ryan@gmail.com</h4>
-      </div>
-      {contact.map((c, index) => {
-        return (
-          <div key={index}>
-            <div
-              className={`contact ${
-                activeContact === index ? "active-contact" : ""
-              }`}
-            >
-              <h4>{c.title}</h4>
-            </div>
-          </div>
-        );
-      })}
-      <Dialog open={openDialog}>
-        <DialogTitle>CONTACT ME</DialogTitle>
-        <TextField
-          label="Your message here..."
-          focused
-          onChange={updateMessage}
-        />
-        <div>
-          <p>Enter to Send</p>
-          <p>CTRL to Exit</p>
-          {messageSent ? <p>Your message was sent!</p> : ""}
+    <div className="center-div">
+      <div className="contact-container">
+        <div className="info">
+          <h4>haefner.ryan@gmail.com</h4>
         </div>
-      </Dialog>
+        {contact.map((c, index) => {
+          return (
+            <div key={index}>
+              <div
+                className={`contact ${
+                  activeContact === index ? "active-contact" : ""
+                }`}
+              >
+                <h4>{c.title}</h4>
+              </div>
+            </div>
+          );
+        })}
+        <Dialog open={openDialog}>
+          <DialogTitle>CONTACT ME</DialogTitle>
+          <TextField
+            label="Your message here..."
+            focused
+            onChange={updateMessage}
+          />
+          <div>
+            <p>Enter to Send</p>
+            <p>CTRL to Exit</p>
+            {messageSent ? <p>Your message was sent!</p> : ""}
+          </div>
+        </Dialog>
+      </div>
     </div>
   );
 }
