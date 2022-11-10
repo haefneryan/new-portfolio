@@ -13,7 +13,7 @@
 .placeholder {
     border: 1px solid white;
     width: 25vw;
-    height: 25vh;
+    height: 25vw;
     pointer-events: none;
     display: flex;
     justify-content: center;

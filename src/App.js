@@ -16,19 +16,26 @@ function App() {
   const userInputKeys = ["w", "a", "s", "d"];
   const [currentPage, setCurrentPage] = useState("home");
   const [activeId, setActiveId] = useState(0);
+  const [activeIdHistory, setActiveIdHistory] = useState([]);
   const [activeContact, setActiveContact] = useState(0);
   const navigate = useNavigate();
   const [showNavHelpMessage, setShowNavHelpMessage] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(true);
   const scroll = Scroll.animateScroll;
+
+  useEffect(() => {
+    scrollToActiveProject();
+  });
 
   useEffect(() => {
     document.title = "Ryan Haefner - Portfolio";
     checkRoute();
     setTimeout(navHelpMessageTimer, 10000);
     scroll.scrollToTop();
+    setTimeout(doneLoading, 1000);
   }, []);
 
   useEffect(() => {
@@ -41,8 +48,8 @@ function App() {
   }, [activeId]);
 
   useEffect(() => {
-    scrollToActiveProject();
-  });
+    console.log(activeIdHistory);
+  }, [activeIdHistory]);
 
   const navHelpMessageTimer = () => {
     setShowNavHelpMessage(true);
@@ -111,8 +118,10 @@ function App() {
   const checkProjectInputChange = (key) => {
     if (key === "s" && activeId < projects.length - 1) {
       setActiveId(activeId + 1);
+      setActiveIdHistory([...activeIdHistory, activeId + 1]);
     } else if (key === "w" && activeId > 0) {
       setActiveId(activeId - 1);
+      setActiveIdHistory([...activeIdHistory, activeId - 1]);
     }
   };
 
@@ -127,6 +136,23 @@ function App() {
   const scrollToActiveProject = () => {
     if (window.innerWidth <= 700) {
       scroll.scrollTo((window.innerWidth - 40) * 0.5 * activeId);
+    } else {
+      let historyLength = activeIdHistory.length;
+      if (historyLength > 0) {
+        if (
+          (activeId === 3 || activeId === 6 || activeId === 9) &&
+          activeIdHistory[historyLength - 2] === activeId - 1
+        ) {
+          console.log("SCROLL DOWN");
+          scroll.scrollTo(window.innerWidth * 0.1 * activeId);
+        } else if (
+          (activeId === 2 || activeId === 5 || activeId === 8) &&
+          activeIdHistory[historyLength - 2] === activeId + 1
+        ) {
+          console.log("SCROLL UP");
+          scroll.scrollTo(window.innerWidth * 0.1 * (activeId - 3));
+        }
+      }
     }
   };
 
@@ -142,6 +168,10 @@ function App() {
 
   const sendMessage = async () => {
     console.log(message);
+  };
+
+  const doneLoading = () => {
+    setLoading(false);
   };
 
   const checkRoute = () => {
@@ -166,7 +196,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="*" element={<Navigate to="/home" />}></Route>
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/home" element={<Home loading={loading} />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route
           path="/projects"
