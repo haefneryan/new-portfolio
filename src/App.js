@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 import Header from "./shared/Header";
@@ -12,26 +12,34 @@ import { projects } from "./shared/projects";
 import { contact } from "./shared/contact";
 import Scroll from "react-scroll";
 
+import emailjs from "@emailjs/browser";
+
 function App() {
+  const navigate = useNavigate();
+  const form = useRef();
+  const scroll = Scroll.animateScroll;
+
   const userInputKeys = ["w", "a", "s", "d"];
   const [currentPage, setCurrentPage] = useState("home");
   const [activeId, setActiveId] = useState(0);
   const [activeIdHistory, setActiveIdHistory] = useState([]);
   const [activeContact, setActiveContact] = useState(0);
-  const navigate = useNavigate();
   const [showNavHelpMessage, setShowNavHelpMessage] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState({
+    first: "",
+    last: "",
+    email: "",
+    message: "",
+  });
   const [loading, setLoading] = useState(true);
-  const scroll = Scroll.animateScroll;
 
   useEffect(() => {
     scrollToActiveProject();
   });
 
   useEffect(() => {
-    document.title = "Ryan Haefner - Portfolio";
     checkRoute();
     setTimeout(navHelpMessageTimer, 10000);
     scroll.scrollToTop();
@@ -46,10 +54,6 @@ function App() {
   useEffect(() => {
     scrollToActiveProject();
   }, [activeId]);
-
-  useEffect(() => {
-    console.log(activeIdHistory);
-  }, [activeIdHistory]);
 
   const navHelpMessageTimer = () => {
     setShowNavHelpMessage(true);
@@ -77,17 +81,17 @@ function App() {
       key === "enter" &&
       !openDialog
     ) {
-      setOpenDialog(!openDialog);
+      setOpenDialog(true);
     } else if (
       openDialog &&
       currentPage === "contact" &&
       key === "enter" &&
       openDialog
     ) {
-      setMessageSent(true);
-      setTimeout(closeDialog, 3000);
+      sendMessage();
     } else if (openDialog && currentPage === "contact" && key === "control") {
       setOpenDialog(false);
+      setMessageSent(false);
     }
   };
 
@@ -126,9 +130,17 @@ function App() {
   };
 
   const checkContactInputChange = (key) => {
-    if (key === "s" && (activeContact === 0 || activeContact === 1)) {
+    if (
+      key === "s" &&
+      (activeContact === 0 || activeContact === 1) &&
+      !openDialog
+    ) {
       setActiveContact(activeContact + 1);
-    } else if (key === "w" && (activeContact === 1 || activeContact === 2)) {
+    } else if (
+      key === "w" &&
+      (activeContact === 1 || activeContact === 2) &&
+      !openDialog
+    ) {
       setActiveContact(activeContact - 1);
     }
   };
@@ -143,31 +155,48 @@ function App() {
           (activeId === 3 || activeId === 6 || activeId === 9) &&
           activeIdHistory[historyLength - 2] === activeId - 1
         ) {
-          console.log("SCROLL DOWN");
           scroll.scrollTo(window.innerWidth * 0.1 * activeId);
         } else if (
           (activeId === 2 || activeId === 5 || activeId === 8) &&
           activeIdHistory[historyLength - 2] === activeId + 1
         ) {
-          console.log("SCROLL UP");
           scroll.scrollTo(window.innerWidth * 0.1 * (activeId - 3));
         }
       }
     }
   };
 
-  const closeDialog = () => {
-    sendMessage();
-    setMessageSent(false);
-    setOpenDialog(false);
-  };
-
   const updateMessage = (e) => {
-    setMessage(e.target.value);
+    let updatedMessage = {
+      first: "",
+      last: "",
+      email: "",
+      message: "",
+    };
+    updatedMessage[e.target.name] = e.target.value;
+    setMessage(updatedMessage);
   };
 
   const sendMessage = async () => {
     console.log(message);
+    await emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          if (result.text === "OK") {
+            setMessageSent(true);
+          }
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   const doneLoading = () => {
@@ -210,6 +239,7 @@ function App() {
               openDialog={openDialog}
               messageSent={messageSent}
               updateMessage={updateMessage}
+              form={form}
             />
           }
         ></Route>

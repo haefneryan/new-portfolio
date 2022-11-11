@@ -1,6 +1,7 @@
 .contact-container {
     width: 60vw;
 }
+
 .contact, .info {
     box-sizing: border-box;
     padding: 8px;
@@ -8,6 +9,16 @@
     color: white;
     text-decoration: none;
     width: 50%;
+}
+
+.MuiDialogTitle-root {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .active-contact {
@@ -24,4 +35,13 @@
 p {
     text-align: center;
     padding-bottom: 3px;
+}
+
+.warning-text {
+    color: red
+}
+
+input, textarea {
+    padding: 10px;
+    margin: 10px;
 }

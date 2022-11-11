@@ -16,8 +16,6 @@ function About() {
         THIS ALLOWS ME TO CHALLENGE MYSELF BY CONTINUING TO LEARN AND BECOME A
         BETTER DEVELOPER.
       </h3>
-      <h3>-</h3>
-      <h3>CONTINUE TO SEE MY PROJECTS</h3>
     </div>
   );
 }
