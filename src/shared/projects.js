@@ -8,6 +8,7 @@ import ExtensionIcon from "@mui/icons-material/Extension";
 import SportsSoccer from "@mui/icons-material/SportsSoccer";
 import PatternIcon from "@mui/icons-material/Pattern";
 import MailOutline from "@mui/icons-material/MailOutline";
+import StorageIcon from "@mui/icons-material/Storage";
 
 export const projects = [
   {
@@ -24,6 +25,11 @@ export const projects = [
     title: "Mass Emailing App",
     url: "http://mass-email-app-hosting.s3-website-us-east-1.amazonaws.com/",
     icon: MailOutline,
+  },
+  {
+    title: "Football Data App",
+    url: "https://haefneryan.github.io/football-data-app/",
+    icon: StorageIcon,
   },
   {
     title: "Scheduling Tool",
