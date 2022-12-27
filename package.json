@@ -2,7 +2,7 @@
   "name": "new-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://haefneryan.github.io/new-portfolio",
+  "homepage": "https://haefneryan.com",
   "dependencies": {
     "@emailjs/browser": "^3.9.1",
     "@emotion/react": "^11.9.3",
