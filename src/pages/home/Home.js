@@ -3,6 +3,7 @@ import profileImage from "../../assets/profileimage.jpg";
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { projects } from "../../shared/projects";
 
 function Home(props) {
   const { loading } = props;
