@@ -26,6 +26,7 @@ function App() {
   const [activeContact, setActiveContact] = useState(0);
   const [showNavHelpMessage, setShowNavHelpMessage] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+  const [openProjectDialog, setOpenProjectDialog] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
   const [message, setMessage] = useState({
     first: "",
@@ -66,7 +67,11 @@ function App() {
     } else if (currentPage === "projects" && (key === "w" || key === "s")) {
       checkProjectInputChange(key);
     } else if (currentPage === "projects" && key === "enter") {
-      window.open(projects[activeId].url, "_blank");
+      if (projects[activeId].url) {
+        window.open(projects[activeId].url, "_blank");
+      } else {
+        setOpenProjectDialog(!openProjectDialog)
+      }
     } else if (currentPage === "contact" && (key === "w" || key === "s")) {
       checkContactInputChange(key);
     } else if (
@@ -178,7 +183,6 @@ function App() {
   };
 
   const sendMessage = async () => {
-    console.log(message);
     await emailjs
       .sendForm(
         process.env.REACT_APP_SERVICE_ID,
@@ -188,7 +192,6 @@ function App() {
       )
       .then(
         (result) => {
-          console.log(result.text);
           if (result.text === "OK") {
             setMessageSent(true);
           }
@@ -229,7 +232,7 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route
           path="/projects"
-          element={<Projects activeId={activeId} />}
+          element={<Projects activeId={activeId} openProjectDialog={openProjectDialog}/>}
         ></Route>
         <Route
           path="/contact"
