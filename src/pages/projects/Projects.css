@@ -55,3 +55,12 @@ iframe {
         height: 40vw;
     }
   }
+
+  .img-container {
+     /* position: relative;; */
+  }
+
+  .project-img {
+    object-fit: contain;
+    width: 100%;
+  }

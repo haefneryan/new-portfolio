@@ -4,15 +4,15 @@ import { projects } from "../../shared/projects";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import { ImageList, ImageListItem } from "@mui/material";
-import portal1 from '../../assets/ROCPortal1.jpg'
-import portal2 from '../../assets/ROCPortal2.jpg'
-import portal3 from '../../assets/ROCPortal3.jpg'
-import portal4 from '../../assets/ROCPortal4.jpg'
-import portal5 from '../../assets/ROCPortal5.jpg'
-import proj1 from '../../assets/Proj1.jpg';
-import proj2 from '../../assets/Proj2.jpg';
-import proj3 from '../../assets/Proj3.jpg';
-import proj4 from '../../assets/Proj4.jpg';
+import portal1 from "../../assets/ROCPortal1.jpg";
+import portal2 from "../../assets/ROCPortal2.jpg";
+import portal3 from "../../assets/ROCPortal3.jpg";
+import portal4 from "../../assets/ROCPortal4.jpg";
+import portal5 from "../../assets/ROCPortal5.jpg";
+import proj1 from "../../assets/Proj1.jpg";
+import proj2 from "../../assets/Proj2.jpg";
+import proj3 from "../../assets/Proj3.jpg";
+import proj4 from "../../assets/Proj4.jpg";
 
 function Projects(props) {
   const { activeId, openProjectDialog } = props;
@@ -45,30 +45,34 @@ function Projects(props) {
           );
         })}
       </div>
-      <Dialog open={openProjectDialog}
+      <Dialog
+        open={openProjectDialog}
         fullWidth
         maxWidth="90vw"
         PaperProps={{
           style: {
-            backgroundColor: 'black',
-            border: '1px solid white'
+            backgroundColor: "black",
+            border: "1px solid white",
           },
         }}
       >
-          {projects[activeId].title === 'Portal' ? <>
-            {portalImages.map((image) => {
-              return (
-                <img key={image} src={image}/>
-              )
-            })}
-          </>
-          : <> {projImages.map((image) => {
-            return (
-              <img key={image} src={image}/>
-            )
-          })}</>
-          }
-        </Dialog>
+        <div className="img-container">
+          {projects[activeId].title === "Portal" ? (
+            <>
+              {portalImages.map((image) => {
+                return <img key={image} src={image} className="project-img" />;
+              })}
+            </>
+          ) : (
+            <>
+              {" "}
+              {projImages.map((image) => {
+                return <img key={image} src={image} className="project-img" />;
+              })}
+            </>
+          )}
+        </div>
+      </Dialog>
     </div>
   );
 }

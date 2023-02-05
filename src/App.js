@@ -64,13 +64,17 @@ function App() {
     let key = e.key.toLowerCase();
     if (key === "d" || key === "a") {
       checkPageInputChange(key);
-    } else if (currentPage === "projects" && (key === "w" || key === "s")) {
+    } else if (
+      currentPage === "projects" &&
+      (key === "w" || key === "s") &&
+      !openProjectDialog
+    ) {
       checkProjectInputChange(key);
     } else if (currentPage === "projects" && key === "enter") {
       if (projects[activeId].url) {
         window.open(projects[activeId].url, "_blank");
       } else {
-        setOpenProjectDialog(!openProjectDialog)
+        setOpenProjectDialog(!openProjectDialog);
       }
     } else if (currentPage === "contact" && (key === "w" || key === "s")) {
       checkContactInputChange(key);
@@ -232,7 +236,12 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route
           path="/projects"
-          element={<Projects activeId={activeId} openProjectDialog={openProjectDialog}/>}
+          element={
+            <Projects
+              activeId={activeId}
+              openProjectDialog={openProjectDialog}
+            />
+          }
         ></Route>
         <Route
           path="/contact"
