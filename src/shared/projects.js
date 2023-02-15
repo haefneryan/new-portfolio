@@ -9,8 +9,8 @@ import SportsSoccer from "@mui/icons-material/SportsSoccer";
 import PatternIcon from "@mui/icons-material/Pattern";
 import MailOutline from "@mui/icons-material/MailOutline";
 import StorageIcon from "@mui/icons-material/Storage";
-import ForestIcon from "@mui/icons-material/Forest"
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import ForestIcon from "@mui/icons-material/Forest";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 
 export const projects = [
   {
@@ -33,24 +33,24 @@ export const projects = [
     url: null,
     icon: DashboardIcon,
     images: [
-      '../../assets/ROCPortal1.jpg',
-      '../../assets/ROC Portal 2',
-      '../../assets/ROC Portal 3',
-      '../../assets/ROC Portal 4',
-      '../../assets/ROC Portal 5',
-    ]
+      "../../assets/ROCPortal1.jpg",
+      "../../assets/ROC Portal 2",
+      "../../assets/ROC Portal 3",
+      "../../assets/ROC Portal 4",
+      "../../assets/ROC Portal 5",
+    ],
   },
   {
     title: "Platform",
     url: null,
     icon: ForestIcon,
     images: [
-      '../assets/Proj 1.PNG',
-      '../assets/Proj 2.PNG',
-      '../assets/Proj 3.PNG',
-      '../assets/Proj 4.PNG',
-      '../assets/Proj 5.PNG',
-    ]
+      "../assets/Proj 1.PNG",
+      "../assets/Proj 2.PNG",
+      "../assets/Proj 3.PNG",
+      "../assets/Proj 4.PNG",
+      "../assets/Proj 5.PNG",
+    ],
   },
   {
     title: "Football Data App",
@@ -59,7 +59,7 @@ export const projects = [
   },
   {
     title: "Scheduling Tool",
-    url: "https://calm-waters-89260.herokuapp.com/",
+    url: "https://haefneryan.github.io/work-app-client",
     icon: FormatListBulletedIcon,
   },
   {
