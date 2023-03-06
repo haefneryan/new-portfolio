@@ -21,9 +21,10 @@ form {
     align-items: center;
 }
 
-.active-contact {
+.contact:hover {
     background-color: white;
     color: black;
+    cursor: pointer;
 }
 
 .MuiDialog-paper {

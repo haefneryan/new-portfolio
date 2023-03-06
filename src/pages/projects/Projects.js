@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Projects.css";
 import { projects } from "../../shared/projects";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import { ImageList, ImageListItem } from "@mui/material";
 import portal1 from "../../assets/ROCPortal1.jpg";
 import portal2 from "../../assets/ROCPortal2.jpg";
 import portal3 from "../../assets/ROCPortal3.jpg";
@@ -14,26 +13,36 @@ import proj2 from "../../assets/Proj2.jpg";
 import proj3 from "../../assets/Proj3.jpg";
 import proj4 from "../../assets/Proj4.jpg";
 
-function Projects(props) {
-  const { activeId, openProjectDialog } = props;
+function Projects() {
+  const [activeProject, setActiveProject] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [openDialog, setOpenDialog] = useState(false);
   const portalImages = [portal1, portal2, portal3, portal4, portal5];
   const projImages = [proj1, proj2, proj3, proj4];
+
+  const openProject = (project) => {
+    setActiveProject(project);
+    if (project.url) {
+      window.open(project.url);
+    } else {
+      setOpenDialog(true);
+    }
+  };
 
   return (
     <div>
       <div className="projects-container">
         {projects.map((projectUrl, index) => {
           return (
-            <div
-              className={`project-container ${
-                activeId === index ? "active-project" : ""
-              }`}
-              id={index}
-              key={index}
-            >
-              <div className="placeholder">
+            <div className="project-container" key={index}>
+              <div
+                className="placeholder"
+                onClick={() => openProject(projectUrl)}
+                onMouseOver={() => setActiveIndex(index)}
+                onMouseOut={() => setActiveIndex(null)}
+              >
                 <projectUrl.icon sx={{ fontSize: 120 }} />
-                {index === activeId ? (
+                {index === activeIndex ? (
                   <>
                     <h5 className="title">{projectUrl.title}</h5>
                   </>
@@ -46,7 +55,8 @@ function Projects(props) {
         })}
       </div>
       <Dialog
-        open={openProjectDialog}
+        open={openDialog}
+        onClose={() => setOpenDialog(false)}
         fullWidth
         maxWidth="90vw"
         PaperProps={{
@@ -57,7 +67,7 @@ function Projects(props) {
         }}
       >
         <div className="img-container">
-          {projects[activeId].title === "Portal" ? (
+          {activeProject?.title === "Portal" ? (
             <>
               {portalImages.map((image) => {
                 return <img key={image} src={image} className="project-img" />;

@@ -11,20 +11,19 @@
     padding: 1rem;
 }
 
+.placeholder:hover {
+    cursor: pointer;
+    background-color: #660000;
+    }
+
 .placeholder {
     border: 1px solid white;
     width: 25vw;
     height: 25vw;
-    pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-}
-
-.active-project {
-    border-radius: 1rem;
-    background-color: #660000;
 }
 
 iframe {
@@ -38,10 +37,6 @@ iframe {
     bottom: -15px;
 }
 
-/* .active-project .placeholder {
-    background-color: blueviolet;
-} */
-
 @media only screen and (max-width: 700px) {
     .projects-container {
         display: flex;
@@ -54,10 +49,6 @@ iframe {
         width: 40vw;
         height: 40vw;
     }
-  }
-
-  .img-container {
-     /* position: relative;; */
   }
 
   .project-img {

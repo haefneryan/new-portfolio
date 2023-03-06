@@ -9,6 +9,6 @@ export const contact = [
   },
   {
     title: "Contact Me",
-    url: "https://www.linkedin.com/in/ryan-haefner-259432188/",
+    url: null,
   },
 ];
