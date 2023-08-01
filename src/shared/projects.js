@@ -1,3 +1,4 @@
+import FoodBank from "@mui/icons-material/FoodBank";
 import GamepadIcon from "@mui/icons-material/Gamepad";
 import MenuBook from "@mui/icons-material/MenuBook";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
@@ -5,8 +6,6 @@ import ViewListIcon from "@mui/icons-material/ViewList";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LaptopIcon from "@mui/icons-material/Laptop";
 import ExtensionIcon from "@mui/icons-material/Extension";
-import SportsSoccer from "@mui/icons-material/SportsSoccer";
-import PatternIcon from "@mui/icons-material/Pattern";
 import MailOutline from "@mui/icons-material/MailOutline";
 import StorageIcon from "@mui/icons-material/Storage";
 import ForestIcon from "@mui/icons-material/Forest";
@@ -14,6 +13,11 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import OpenInBrowserIcon from "@mui/icons-material/OpenInBrowser";
 
 export const projects = [
+  {
+    title: "Food App",
+    url: "https://food-app-47so.onrender.com/",
+    icon: FoodBank,
+  },
   {
     title: "Football Guessing Game",
     url: "https://football-game-75856.web.app/",
@@ -35,7 +39,7 @@ export const projects = [
     icon: OpenInBrowserIcon,
   },
   {
-    title: "Portal",
+    title: "Dashboard",
     url: null,
     icon: DashboardIcon,
   },
@@ -73,15 +77,5 @@ export const projects = [
     title: "Word Scrambler",
     url: "https://haefneryan.github.io/word-scrambler/",
     icon: ExtensionIcon,
-  },
-  {
-    title: "Soccer Scores & Tables",
-    url: "https://haefneryan.github.io/Football-Scores/soccerScores.html",
-    icon: SportsSoccer,
-  },
-  {
-    title: "Tic Tac Toe",
-    url: "https://haefneryan.github.io/Tic-Tac-Toe/index.html",
-    icon: PatternIcon,
   },
 ];
