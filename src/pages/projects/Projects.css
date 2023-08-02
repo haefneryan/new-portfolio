@@ -37,6 +37,10 @@ iframe {
     bottom: -15px;
 }
 
+.project-img {
+    width: 100%;
+}
+
 @media only screen and (max-width: 700px) {
     .projects-container {
         display: flex;

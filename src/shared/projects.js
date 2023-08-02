@@ -37,16 +37,35 @@ export const projects = [
     title: "Website Builder",
     url: null,
     icon: OpenInBrowserIcon,
+    images: [
+      require("../assets/Builder1.jpg"),
+      require("../assets/Builder2.jpg"),
+      require("../assets/Builder3.jpg"),
+      require("../assets/Builder4.jpg"),
+    ],
   },
   {
     title: "Dashboard",
     url: null,
     icon: DashboardIcon,
+    images: [
+      require("../assets/Dashboard1.jpg"),
+      require("../assets/Dashboard2.jpg"),
+      require("../assets/Dashboard3.jpg"),
+      require("../assets/Dashboard4.jpg"),
+      require("../assets/Dashboard5.jpg"),
+    ],
   },
   {
     title: "Platform",
     url: null,
     icon: ForestIcon,
+    images: [
+      require("../assets/Proj1.jpg"),
+      require("../assets/Proj2.jpg"),
+      require("../assets/Proj3.jpg"),
+      require("../assets/Proj4.jpg"),
+    ],
   },
   {
     title: "Football Data App",

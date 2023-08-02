@@ -20,8 +20,6 @@ function App() {
   }, []);
 
   const sendMessage = async (message) => {
-    console.log(message);
-    console.log(form.current);
     await emailjs
       .sendForm(
         process.env.REACT_APP_SERVICE_ID,
