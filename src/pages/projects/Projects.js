@@ -48,11 +48,13 @@ function Projects() {
           open={openDialog}
           onClose={() => setOpenDialog(false)}
           fullWidth
-          maxWidth="90vw"
           PaperProps={{
             style: {
               backgroundColor: "black",
               border: "1px solid white",
+              maxWidth: "1000px",
+              height: "70vh",
+              borderRadius: "3rem"
             },
           }}
         >

@@ -11,6 +11,7 @@ import StorageIcon from "@mui/icons-material/Storage";
 import ForestIcon from "@mui/icons-material/Forest";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import OpenInBrowserIcon from "@mui/icons-material/OpenInBrowser";
+import InsertChartIcon from "@mui/icons-material/InsertChart";
 
 export const projects = [
   {
@@ -34,37 +35,57 @@ export const projects = [
     icon: MailOutline,
   },
   {
+    title: "Platform",
+    url: null,
+    icon: ForestIcon,
+    images: [
+      require("../assets/platform/platform1.jpg"),
+      require("../assets/platform/platform2.jpg"),
+      require("../assets/platform/platform3.jpg"),
+      require("../assets/platform/platform4.jpg"),
+      require("../assets/platform/platform5.jpg"),
+      require("../assets/platform/platform6.jpg"),
+      require("../assets/platform/platform7.jpg"),
+      require("../assets/platform/platform8.jpg"),
+      require("../assets/platform/platform9.jpg"),
+      require("../assets/platform/platform10.jpg"),
+      require("../assets/platform/platform11.jpg"),
+      require("../assets/platform/platform12.jpg"),
+    ],
+  },
+  {
+    title: "Portal",
+    url: null,
+    icon: DashboardIcon,
+    images: [
+      require("../assets/portal/Dashboard1.jpg"),
+      require("../assets/portal/Dashboard2.jpg"),
+      require("../assets/portal/Dashboard3.jpg"),
+      require("../assets/portal/Dashboard4.jpg"),
+      require("../assets/portal/Dashboard5.jpg"),
+      require("../assets/portal/Dashboard6.jpg"),
+    ],
+  },
+  {
     title: "Website Builder",
     url: null,
     icon: OpenInBrowserIcon,
     images: [
-      require("../assets/Builder1.jpg"),
-      require("../assets/Builder2.jpg"),
-      require("../assets/Builder3.jpg"),
-      require("../assets/Builder4.jpg"),
+      require("../assets/builder/Builder1.jpg"),
+      require("../assets/builder/Builder2.jpg"),
+      require("../assets/builder/Builder3.jpg"),
+      require("../assets/builder/Builder4.jpg"),
     ],
   },
   {
     title: "Dashboard",
     url: null,
-    icon: DashboardIcon,
+    icon: InsertChartIcon,
     images: [
-      require("../assets/Dashboard1.jpg"),
-      require("../assets/Dashboard2.jpg"),
-      require("../assets/Dashboard3.jpg"),
-      require("../assets/Dashboard4.jpg"),
-      require("../assets/Dashboard5.jpg"),
-    ],
-  },
-  {
-    title: "Platform",
-    url: null,
-    icon: ForestIcon,
-    images: [
-      require("../assets/Proj1.jpg"),
-      require("../assets/Proj2.jpg"),
-      require("../assets/Proj3.jpg"),
-      require("../assets/Proj4.jpg"),
+      require("../assets/dashboard/Proj1.jpg"),
+      require("../assets/dashboard/Proj2.jpg"),
+      require("../assets/dashboard/Proj3.jpg"),
+      require("../assets/dashboard/Proj4.jpg"),
     ],
   },
   {
