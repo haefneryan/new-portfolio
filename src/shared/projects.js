@@ -51,6 +51,12 @@ export const projects = [
       require("../assets/platform/platform10.jpg"),
       require("../assets/platform/platform11.jpg"),
       require("../assets/platform/platform12.jpg"),
+      require("../assets/platform/platform13.jpg"),
+      require("../assets/platform/platform14.jpg"),
+      require("../assets/platform/platform15.jpg"),
+      require("../assets/platform/platform16.jpg"),
+      require("../assets/platform/platform17.jpg"),
+      require("../assets/platform/platform18.jpg"),
     ],
   },
   {
