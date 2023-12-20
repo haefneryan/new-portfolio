@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.8e0b93bd.css",
-    "main.js": "/static/js/main.e34e844c.js",
+    "main.js": "/static/js/main.baeb7205.js",
     "static/media/Builder1.jpg": "/static/media/Builder1.437d3979d4bba4acc82b.jpg",
     "static/media/platform1.jpg": "/static/media/platform1.1865e61f500cbb5737fa.jpg",
     "static/media/platform2.jpg": "/static/media/platform2.d98bc169dc2a363a5425.jpg",
@@ -10,7 +10,11 @@
     "static/media/Builder3.jpg": "/static/media/Builder3.3417aa438eee8c84217f.jpg",
     "static/media/platform5.jpg": "/static/media/platform5.c116190ce2b35e96a7ab.jpg",
     "static/media/platform4.jpg": "/static/media/platform4.2f3e743fe216f4d79d22.jpg",
+    "static/media/platform14.jpg": "/static/media/platform14.15471c2ddd63832436cf.jpg",
+    "static/media/platform17.jpg": "/static/media/platform17.cb566f0ed4edd0ff649b.jpg",
     "static/media/platform3.jpg": "/static/media/platform3.3ca47578aef908a9d913.jpg",
+    "static/media/platform13.jpg": "/static/media/platform13.7d324e363ec4a21c4137.jpg",
+    "static/media/platform16.jpg": "/static/media/platform16.6de6e2952e960784c876.jpg",
     "static/media/platform9.jpg": "/static/media/platform9.188b124c6b216869e228.jpg",
     "static/media/platform6.jpg": "/static/media/platform6.00d14440a42d5297d6a3.jpg",
     "static/media/profileimage.jpg": "/static/media/profileimage.e501c4479a4122ad4d73.jpg",
@@ -20,6 +24,7 @@
     "static/media/Dashboard4.jpg": "/static/media/Dashboard4.64ce7a47f417bfd4ed7b.jpg",
     "static/media/Dashboard6.jpg": "/static/media/Dashboard6.11885c945538b9951d2e.jpg",
     "static/media/platform12.jpg": "/static/media/platform12.f280ca1aeb8cac9c4879.jpg",
+    "static/media/platform18.jpg": "/static/media/platform18.9a42eb35c3f8ca804079.jpg",
     "static/media/Dashboard5.jpg": "/static/media/Dashboard5.a5033648f4f6e80b7d34.jpg",
     "static/media/Dashboard2.jpg": "/static/media/Dashboard2.e24db189b86b4e18d4b5.jpg",
     "static/media/Proj1.jpg": "/static/media/Proj1.daa0bd9aeae5b81b423c.jpg",
@@ -29,12 +34,13 @@
     "static/media/platform11.jpg": "/static/media/platform11.59777e1641fd45fdaf30.jpg",
     "static/media/Proj3.jpg": "/static/media/Proj3.5cad144e17d77c8d50a5.jpg",
     "static/media/Proj4.jpg": "/static/media/Proj4.5d894b46650c01a054e6.jpg",
+    "static/media/platform15.jpg": "/static/media/platform15.ae89a978c9406f8f8e2b.jpg",
     "index.html": "/index.html",
     "main.8e0b93bd.css.map": "/static/css/main.8e0b93bd.css.map",
-    "main.e34e844c.js.map": "/static/js/main.e34e844c.js.map"
+    "main.baeb7205.js.map": "/static/js/main.baeb7205.js.map"
   },
   "entrypoints": [
     "static/css/main.8e0b93bd.css",
-    "static/js/main.e34e844c.js"
+    "static/js/main.baeb7205.js"
   ]
 }
