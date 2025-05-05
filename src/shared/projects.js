@@ -104,24 +104,4 @@ export const projects = [
     url: "https://haefneryan.github.io/work-app-client",
     icon: FormatListBulletedIcon,
   },
-  {
-    title: "Job Board",
-    url: "https://job-board-client-haefneryan.herokuapp.com/",
-    icon: ViewListIcon,
-  },
-  {
-    title: "Shop App",
-    url: "https://haefneryan.github.io/react-shop-app/",
-    icon: ShoppingCartIcon,
-  },
-  {
-    title: "Student Grades",
-    url: "https://haefneryan.github.io/student-grades-react/",
-    icon: LaptopIcon,
-  },
-  {
-    title: "Word Scrambler",
-    url: "https://haefneryan.github.io/word-scrambler/",
-    icon: ExtensionIcon,
-  },
 ];
